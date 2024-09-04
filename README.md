@@ -1,27 +1,28 @@
-# SistemaAnuncioFrontend
+# Projeto
+É utilizado tecnologias de ponta, incluindo Spring Boot 3, Spring Security 6, Angular 16, Ng Zorro UI e um banco de dados MySQL. Vai ser explorado os principais recursos deste sistema de reserva de serviços:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+## Tecnologias:
+- **Angular**: Estrutura de front-end para construção de aplicativos web dinâmicos.
+- **Spring Boot**: Framework para construção de aplicativos corporativos baseados em Java.
+- **MySQL**: Sistema de gerenciamento de banco de dados relacional para armazenamento de dados.
+- **Ng Zorro UI**: Biblioteca de componentes para aplicativos Angular.
 
-## Development server
+## 🏢 Recursos da Empresa:
+- **Criar conta**: Registre-se como usuário da empresa.
+- **Login**: Acesse a conta com credenciais.
+- **Publicar anúncios**: Anuncie serviços ou produtos.
+- **Atualizar e excluir anúncios**: Modificar ou remover anúncios postados.
+- **Ver Reservas**: Veja a lista de reservas feitas pelos clientes.
+- **Aprovar ou rejeitar reserva**: Aceite ou recuse solicitações de reserva.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 👤 Recursos do Cliente:
+- **Criar conta**: Registre-se como usuário cliente.
+- **Login**: Acesse a conta com credenciais.
+- **Serviços de pesquisa**: Encontre serviços ou produtos.
+- **Ver detalhes e comentários do anúncio**: Verifique informações detalhadas e comentários dos anúncios.
+- **Serviços de reserva**: Faça reservas de serviços ou produtos.
+- **Ver Reservas**: Veja a lista de reservas feitas pelo cliente.
+- **Serviços de avaliação**: Forneça feedback ou avaliações sobre os serviços.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+## Autor: Daniel Penelva de Andrade
