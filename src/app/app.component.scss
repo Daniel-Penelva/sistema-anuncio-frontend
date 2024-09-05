@@ -1,0 +1,50 @@
+$secondary-color: #141a33;
+$primary-color: #F48023;
+$white-color: #ffffff;
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: $primary-color;
+  height: 60px;
+
+  .header-title {
+    h2 {
+      color: $white-color;
+      margin: 0;
+      padding-left: 10px;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px; // Adiciona espaçamento entre os links
+
+    a {
+      font-weight: 300;
+      font-size: 15px;
+      color: $white-color;
+      text-decoration: none; // Remove sublinhado padrão
+
+      &:hover {
+        color: $white-color;
+        background: $secondary-color;
+        border-radius: 4px; // Opcional: arredonda as bordas ao passar o mouse
+        padding: 5px;
+      }
+
+      &.active {
+        background: $secondary-color;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+}
