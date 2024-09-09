@@ -12,8 +12,8 @@ import en from '@angular/common/locales/en';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
-import { DemoNgZorroAntdModule } from './DemoNgZorroAntdModule';
 import { SignupClientComponent } from './basic/components/signup-client/signup-client.component';
+import { DemoNgZorroAntdModule } from './ng-zorro/demo-ng-zorro-antd.module';
 
 registerLocaleData(en);
 
@@ -28,8 +28,8 @@ registerLocaleData(en);
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    DemoNgZorroAntdModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DemoNgZorroAntdModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
