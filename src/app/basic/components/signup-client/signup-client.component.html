@@ -1,1 +1,52 @@
-<p>signup-client works!</p>
+<div class="bg">
+    <div class="parent">
+        <div class="child">
+            <div nz-col>
+                <h1 style="margin-left: 35px;">Cadastrar Cliente</h1>
+            </div>
+
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                <nz-form-item> 
+                    <nz-form-control nzHasFeedback nzErrorTip="Campo de E-mail inválido!">
+                        <input nz-input placeholder="E-mail" formControlName="email" id="email">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item> 
+                    <nz-form-control nzHasFeedback nzErrorTip="Campo de senha inválido!">
+                        <input nz-input type="password" placeholder="Senha" formControlName="password" id="password">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item> 
+                    <nz-form-control nzHasFeedback nzErrorTip="Campo de senha inválido!">
+                        <input nz-input type="password" placeholder="Confirmar Senha" formControlName="checkPassword" id="checkPassword">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item> 
+                    <nz-form-control nzHasFeedback nzErrorTip="Campo de nome inválido!">
+                        <input nz-input placeholder="Nome" formControlName="name" id="name">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item> 
+                    <nz-form-control nzHasFeedback nzErrorTip="Campo de sobrenome inválido!">
+                        <input nz-input placeholder="Sobrenome" formControlName="lastname" id="lastname">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item> 
+                    <nz-form-control nzHasFeedback nzErrorTip="Campo de telefone inválido!">
+                        <input nz-input placeholder="Telefone" formControlName="phone" id="phone">
+                    </nz-form-control>
+                </nz-form-item>
+
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">
+                    Registrar
+                </button>
+                Acessar <a routerLink="/login">Login</a>
+            </form>
+        </div>
+    </div>
+</div>

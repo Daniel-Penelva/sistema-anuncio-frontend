@@ -1,0 +1,59 @@
+.phone-select {
+    width: 70px;
+}
+
+.child {
+    padding: 50px;
+    width: 380px;
+    background-color: white;
+    box-shadow: 1px 1px 15px -7px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 22px;
+}
+
+nz-form-control {
+    min-width: 280px;
+}
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 100px);
+    padding-top: 100px;
+}
+
+.login-form-margin {
+    margin-bottom: 16px;
+}
+
+.login-form-forgot {
+    float: right;
+}
+
+.login-form-button {
+    width: 100%;
+}
+
+button {
+    background-color: #001529;
+    border: none;
+    width: 100%;
+}
+
+.imgDiv {
+    width: 100%;
+    vertical-align: middle;
+    margin-bottom: 40px;
+}
+
+.title {
+    text-align: center; /* Centraliza o título */
+}
+
+.bg {
+    background-color: #f5f7f9;
+    width: 100%;
+    height: 100vh;
+}
