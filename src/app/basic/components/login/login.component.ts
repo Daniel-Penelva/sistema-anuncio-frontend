@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { AuthService } from '../../services/auth/auth.service';
+import { UserStorageService } from '../../services/storage/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,11 @@ export class LoginComponent {
     this.authService.login(this.validateForm.get(['username'])!.value, this.validateForm.get(['password'])!.value).subscribe(
       res => {
         console.log(res);
+        if(UserStorageService.isClientLoggedIn()){
+          this.router.navigateByUrl('client/dashboard');
+        }else if(UserStorageService.isCompanyLoggedIn()){
+          this.router.navigateByUrl('company/dashboard');
+        }
     }, error => {
       this.notification.error('ERROR', 'Credenciais inválida', { nzDuration: 5000 });
     })
