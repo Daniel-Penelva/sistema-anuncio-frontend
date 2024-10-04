@@ -56,8 +56,13 @@ export class CreateAdComponent {
     formData.append('description', this.validateForm.get('description').value);
     formData.append('price', this.validateForm.get('price').value);
 
+    // inspecionar o conteudo da imagem e dos campos serviceName, description e price
+    console.log(this.selectedFile);
+    console.log("Imagem: " + formData.get('img'));
+    console.log("Nome do Serviço: " + formData.get('serviceName') + " Descrição: " + formData.get('description') + " Preço: " + formData.get('price'));
+
     this.companyService.postAd(formData).subscribe(res => {
-      this.notification.success('SUCCESS', 'Ad Posted Successfully!', { nzDuration: 5000 });
+      this.notification.success('SUCCESS', 'Anúncio publicado com sucesso!', { nzDuration: 5000 });
       this.router.navigateByUrl('/company/ads');
     }, error => {
       this.notification.error('ERROR', `${error.error}`, { nzDuration: 5000 });
