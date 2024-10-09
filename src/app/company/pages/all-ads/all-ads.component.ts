@@ -23,4 +23,9 @@ export class AllAdsComponent {
         this.ads = res;
     });
   }
+
+  // O método updateImg() é usada para transformar a imagem codificada em Base64 em uma URL utilizável no HTML, permitindo a exibição de imagens diretamente sem a necessidade de um caminho de arquivo físico.
+  updateImg(img) {
+    return 'data:image/jpeg;base64,' + img;
+  }
 }
