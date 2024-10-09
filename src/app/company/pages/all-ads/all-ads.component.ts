@@ -1,10 +1,26 @@
 import { Component } from '@angular/core';
+import { CompanyService } from '../../services/company.service';
 
 @Component({
   selector: 'app-all-ads',
   templateUrl: './all-ads.component.html',
-  styleUrl: './all-ads.component.scss'
+  styleUrl: './all-ads.component.scss',
 })
 export class AllAdsComponent {
+  
+  ads: any;
 
+  constructor(private companyService: CompanyService) {}
+
+  ngOnInit() {
+    this.getAllAdsByUserId();
+  }
+
+  // Método para exibir os anúncios de um usuário específico.
+  getAllAdsByUserId() {
+    this.companyService.getAllAdsByUserId().subscribe(
+      res => {
+        this.ads = res;
+    });
+  }
 }
