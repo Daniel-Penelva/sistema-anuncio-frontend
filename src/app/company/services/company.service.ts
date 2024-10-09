@@ -19,6 +19,12 @@ export class CompanyService {
   }
 
 
+  // Método responsável por buscar todos os anúncios (ads) de um usuário específico.
+  getAllAdsByUserId(): Observable<any> {
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `api/company/ads/${userId}`, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
