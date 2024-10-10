@@ -25,6 +25,11 @@ export class CompanyService {
     return this.http.get(BASIC_URL + `api/company/ads/${userId}`, { headers: this.createAuthorizationHeader() });
   }
 
+
+  getAdById(adId: any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/company/ad/${adId}`, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
