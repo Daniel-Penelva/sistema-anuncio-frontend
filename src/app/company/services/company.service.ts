@@ -25,9 +25,14 @@ export class CompanyService {
     return this.http.get(BASIC_URL + `api/company/ads/${userId}`, { headers: this.createAuthorizationHeader() });
   }
 
-
+  // Método responsável por fazer uma requisição HTTP do tipo GET para buscar um anúncio específico no servidor, utilizando o ID do anúncio fornecido como argumento.
   getAdById(adId: any): Observable<any> {
     return this.http.get(BASIC_URL + `api/company/ad/${adId}`, { headers: this.createAuthorizationHeader() });
+  }
+
+  // Método responsável por enviar uma requisição HTTP PUT ao back-end para atualizar um anúncio (Ad).
+  updateAd(adId: any, adDTO: any): Observable<any> {
+    return this.http.put(BASIC_URL + `api/company/ad/${adId}`, adDTO, { headers: this.createAuthorizationHeader() });
   }
 
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
