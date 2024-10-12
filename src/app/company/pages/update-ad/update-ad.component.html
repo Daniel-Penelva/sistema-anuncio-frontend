@@ -1,1 +1,66 @@
-<p>update-ad works!</p>
+<div style="background-color: #f8f8f8;">
+    <div class="parent">
+        <div class="child">
+            <div class="imgDiv">
+                <h2>Atualizar anúncio</h2>
+            </div>
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="updateAd()">
+                <div class="file-upload-container">
+                    <label class="file-upload-label">
+                        <span>Carregar arquivo</span>
+                        <input type="file" nz-button nzType="primary" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)" />
+                    </label>
+                    <!-- Pré-visualização da imagem -->
+                    <div *ngIf="imagePreview || existingImage" class="image-preview">
+                        <div class="circle-image">
+                            <img [src]="imagePreview || existingImage" alt="Imagem" class="preview-image">
+                        </div>
+                    </div>
+
+                    <!-- OBSERVAÇÃO: Outra maneira de fazer a pré-visualização da imagem 
+                    <div *ngIf="imagePreview" class="image-preview">
+                        <div class="circle-image">
+                            <img [src]="imagePreview" alt="Imagem carregada" class="preview-image">
+                        </div>
+                    </div>
+                    <div *ngIf="existingImage" class="image-preview">
+                        <div class="circle-image">
+                            <img [src]="existingImage" alt="Imagem existente" class="preview-image">
+                        </div>
+                    </div>
+                    -->
+                </div>
+
+                <!-- Input para o nome do serviço -->
+                <div nz-col nzSpan="24" style="margin-top: 20px;">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Campo obrigatório!">
+                            <input nz-input placeholder="Nome do serviço" formControlName="serviceName" />
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <!-- Input para o preço -->
+                <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Campo obrigatório!">
+                            <input nz-input type="number" placeholder="Preço" formControlName="price" />
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <!-- Textarea para descrição -->
+                <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Campo obrigatório!">
+                            <textarea rows="1" nz-input placeholder="Descrição" formControlName="description"></textarea>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                <!-- Botão de atualizar -->
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
