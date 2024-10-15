@@ -35,6 +35,11 @@ export class CompanyService {
     return this.http.put(BASIC_URL + `api/company/ad/${adId}`, adDTO, { headers: this.createAuthorizationHeader() });
   }
 
+  // Método responsável por enviar uma requisição HTTP DELETE ao back-end para deletar um anúncio (Ad).
+  deleteAd(adId: any): Observable<any> {
+    return this.http.delete(BASIC_URL + `api/company/ad/${adId}`, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
