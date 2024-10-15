@@ -30,6 +30,7 @@ export class AllAdsComponent {
     return 'data:image/jpeg;base64,' + img;
   }
 
+  // Método para deletar o anúncio de um usuário específico.
   deleteAd(adId: any) {
     this.companyService.deleteAd(adId).subscribe(
       res => {
