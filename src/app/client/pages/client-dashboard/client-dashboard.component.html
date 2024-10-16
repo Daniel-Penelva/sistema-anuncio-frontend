@@ -1,3 +1,23 @@
+<form nz-form [formGroup]="validateForm" (submit)="searchAdByName()" style="margin-top: 20px; margin-bottom: 20px; text-align: center;">
+    <input 
+        nz-input placeholder="Buscar serviço" 
+        nzSize="large" style="width: 20%;" 
+        formControlName="service" 
+        [ngClass]="{'is-invalid': validateForm.get('service').invalid && validateForm.get('service').touched}"
+    />
+    <button nz-button nzSize="large" nzType="primary" style="margin-left: 15px;" [disabled]="validateForm.invalid">Pesquisar</button>
+
+    <!-- Mensagem de erro quando o campo é obrigatório e foi tocado -->
+    <div *ngIf="validateForm.get('service').invalid && validateForm.get('service').touched" class="error-message">
+        O campo de busca é obrigatório.
+    </div>
+
+    <!-- Mensagem de erro quando não há anúncios e o campo está preenchido -->
+    <div *ngIf="validateForm.get('service').valid && ads.length === 0" style="color: red; text-align: center;">
+        Nenhum anúncio encontrado com o nome pesquisado.
+    </div>
+</form>
+
 <div class="bg">
     <div style="margin-top: 10px;" class="child" *ngFor="let ad of ads">
         <div nz-row>

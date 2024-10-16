@@ -65,3 +65,24 @@ h2:hover {
     min-height: 91vh;
 }
 
+/* Estilizando a mensagem de erro */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+  /* Estilizando o input quando estiver inválido */
+.is-invalid {
+    border-color: red !important;
+    box-shadow: 0 0 5px red !important;
+}
+
+/* Ajuste para manter o foco visual quando o input estiver inválido */
+.is-invalid:focus {
+    outline: none;
+    border-color: red;
+    box-shadow: 0 0 5px red;
+}
+
