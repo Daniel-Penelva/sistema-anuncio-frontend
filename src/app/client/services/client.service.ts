@@ -17,6 +17,11 @@ export class ClientService {
     return this.http.get(BASIC_URL + `api/client/ads`, { headers: this.createAuthorizationHeader() });
   }
 
+  // Método responsável por fazer uma requisição HTTP do tipo GET para buscar anúncio(s) específico(s) no servidor, utilizando o name do anúncio fornecido como argumento.
+  searchAdByName(name: any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/client/search/${name}`, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
