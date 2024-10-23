@@ -22,6 +22,11 @@ export class ClientService {
     return this.http.get(BASIC_URL + `api/client/search/${name}`, { headers: this.createAuthorizationHeader() });
   }
 
+  // Método responsável por buscar os detalhes de um anúncio específico pelo seu ID
+  getAdDetailsByAdId(adId: any): Observable<any> {
+    return this.http.get(BASIC_URL + `api/client/ad/${adId}`, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();

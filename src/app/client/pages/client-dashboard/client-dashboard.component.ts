@@ -40,7 +40,7 @@ export class ClientDashboardComponent {
     this.clientService.searchAdByName(this.validateForm.get(['service']).value).subscribe(res => {
       this.ads = res;
 
-      // Verifica se a resposta está vazia
+      // Verifica se a resposta está vazia - aqui verifica o número de elementos presentes no array ads, se o array está vazio, ou seja, nenhum anúncio foi encontrado com base na pesquisa.
       if (this.ads.length === 0) {
         this.notification.info('INFO', 'Nenhum anúncio encontrado com esse nome.', { nzDuration: 5000 });
       }
