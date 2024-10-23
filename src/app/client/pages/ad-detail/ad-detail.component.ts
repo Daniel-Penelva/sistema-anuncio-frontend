@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 export class AdDetailComponent {
   
   adId = this.activatedRoute.snapshot.params['adId'];
+  avatarUrl: any;
+  ad: any;
 
   constructor(
     private clientService: ClientService,
@@ -23,6 +25,8 @@ export class AdDetailComponent {
   getAdDetailsByAdId() {
     this.clientService.getAdDetailsByAdId(this.adId).subscribe((res) => {
       console.log(res);
+      this.avatarUrl = 'data:image/jpeg;base64,' + res.adDTO.returnedImg;
+      this.ad = res.adDTO;
     }, error => {
       console.log('Erro ao buscar os detalhes do anúncio:', error);
     });
