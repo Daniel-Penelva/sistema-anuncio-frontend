@@ -40,6 +40,12 @@ export class CompanyService {
     return this.http.delete(BASIC_URL + `api/company/ad/${adId}`, { headers: this.createAuthorizationHeader() });
   }
 
+  // Método responsável por buscar todas as reservas associadas a uma empresa específica no back-end.
+  getAllAdBookings(): Observable<any> {
+    const companyId = UserStorageService.getUserId();
+    return this.http.get(BASIC_URL + `api/company/bookings/${companyId}`, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
