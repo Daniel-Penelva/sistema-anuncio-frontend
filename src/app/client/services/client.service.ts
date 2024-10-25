@@ -29,8 +29,7 @@ export class ClientService {
 
   // Este método é responsável por enviar uma solicitação para reservar um serviço através de uma API. 
   bookService(bookDTO: any): Observable<any> {
-    const userId = UserStorageService.getUserId();
-    return this.http.post(BASIC_URL + `api/client/book-service/${userId}`, bookDTO, { headers: this.createAuthorizationHeader() });
+    return this.http.post(BASIC_URL + `api/client/book-service`, bookDTO, { headers: this.createAuthorizationHeader() });
   }
 
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.

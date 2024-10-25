@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { ClientService } from '../../services/client.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserStorageService } from '../../../basic/services/storage/user-storage.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-ad-detail',
@@ -12,13 +15,21 @@ export class AdDetailComponent {
   adId = this.activatedRoute.snapshot.params['adId'];
   avatarUrl: any;
   ad: any;
+  validateForm!: FormGroup;
 
   constructor(
     private clientService: ClientService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private fb: FormBuilder,
+    private notification: NzNotificationService
   ) {}
 
   ngOnInit(): void {
+    this.validateForm = this.fb.group({
+      bookDate: [null, [Validators.required]]
+    })
+
     this.getAdDetailsByAdId();
   }
 
@@ -29,6 +40,26 @@ export class AdDetailComponent {
       this.ad = res.adDTO;
     }, error => {
       console.log('Erro ao buscar os detalhes do anúncio:', error);
+    });
+  }
+
+  bookService() {
+
+    if(this.validateForm.invalid) {
+      this.notification.error('Erro', 'Por favor, preencha os campos obrigatórios');
+      return;
+    }
+
+    const bookServiceDTO = {
+      bookDate: this.validateForm.get(['bookDate']).value, adId: this.adId, userId: UserStorageService.getUserId()
+    }
+
+    this.clientService.bookService(bookServiceDTO).subscribe(
+      (res) => {
+        this.notification.success('SUCCESS', 'Solicitação postada com sucesso', { nzDuration: 5000 });
+        this.router.navigateByUrl('/client/bookings');
+    }, (error) => {
+      this.notification.error('Erro', 'Falha ao postar solicitação');
     });
   }
 }
