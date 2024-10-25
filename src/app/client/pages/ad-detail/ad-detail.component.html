@@ -27,7 +27,10 @@
                                 </nz-form-item>
                             </div>
                         </div>
-                        <button nz-button [nzType]="'primary'" [disabled]="validateForm.invalid" (click)="bookService()">Reservar</button>
+                        <button nz-button [nzType]="'primary'" [disabled]="validateForm.invalid || loading" (click)="bookService()">
+                            <span *ngIf="!loading">Reservar</span>
+                            <nz-spin *ngIf="loading"></nz-spin>
+                        </button>
                     </form>
                 </div>
             </div>

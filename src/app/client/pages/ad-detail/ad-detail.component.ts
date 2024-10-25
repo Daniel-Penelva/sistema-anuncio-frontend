@@ -16,6 +16,7 @@ export class AdDetailComponent {
   avatarUrl: any;
   ad: any;
   validateForm!: FormGroup;
+  loading = false;             // Variável de controle do carregamento
 
   constructor(
     private clientService: ClientService,
@@ -50,15 +51,20 @@ export class AdDetailComponent {
       return;
     }
 
+    // Inicia o estado de carregamento
+    this.loading = true;
+
     const bookServiceDTO = {
       bookDate: this.validateForm.get(['bookDate']).value, adId: this.adId, userId: UserStorageService.getUserId()
     }
 
     this.clientService.bookService(bookServiceDTO).subscribe(
       (res) => {
-        this.notification.success('SUCCESS', 'Solicitação postada com sucesso', { nzDuration: 5000 });
+        this.loading = false;                                                                              // Finaliza o estado de carregamento
+        this.notification.success('SUCESSO', 'Solicitação postada com sucesso', { nzDuration: 5000 });
         this.router.navigateByUrl('/client/bookings');
     }, (error) => {
+      this.loading = false;                                                                                // Finaliza o estado de carregamento em caso de erro
       this.notification.error('Erro', 'Falha ao postar solicitação');
     });
   }
