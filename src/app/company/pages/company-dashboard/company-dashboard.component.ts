@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CompanyService } from '../../services/company.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -10,7 +11,7 @@ export class CompanyDashboardComponent {
 
   bookings: any;
   
-  constructor(private companyService: CompanyService) {}
+  constructor(private companyService: CompanyService, private notification: NzNotificationService) {}
 
   ngOnInit(): void {
     this.getAllAdBookings();
@@ -22,6 +23,15 @@ export class CompanyDashboardComponent {
       this.bookings = res;
     }, (error) => {
       console.error("Erro ao carregar as reservas, ", error);
+    });
+  }
+
+  changeBookingStatus(bookingId: number, status: string) {
+    this.companyService.changeBookingStatus(bookingId, status).subscribe((res) => {
+      this.notification.success('SUCESSO', 'Status da reserva alterado com sucesso', { nzDuration: 5000});
+      this.getAllAdBookings();   // Atualização da Lista de Reservas
+    }, error => {
+      this.notification.error('ERRO', `${error.message}`, { nzDuration: 5000 });
     });
   }
 }
