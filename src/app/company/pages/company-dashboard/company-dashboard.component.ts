@@ -28,7 +28,8 @@ export class CompanyDashboardComponent {
 
   changeBookingStatus(bookingId: number, status: string) {
     this.companyService.changeBookingStatus(bookingId, status).subscribe((res) => {
-      this.notification.success('SUCESSO', 'Status da reserva alterado com sucesso', { nzDuration: 5000});
+      const actionMessage = status === 'Approve' ? 'aprovada' : 'rejeitada';
+      this.notification.success('SUCESSO', `Reserva ${actionMessage} com sucesso`, { nzDuration: 5000});
       this.getAllAdBookings();   // Atualização da Lista de Reservas
     }, error => {
       this.notification.error('ERRO', `${error.message}`, { nzDuration: 5000 });

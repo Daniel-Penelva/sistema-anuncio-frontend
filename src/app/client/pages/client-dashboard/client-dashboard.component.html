@@ -25,7 +25,11 @@
                 <img class="profile" [src]="updateImg(ad.returnedImg)" style="height: 130px; width: 200px; border-radius: 10px;" />
             </div>
             <div nz-col nzSpan="16">
-                <h2 style="cursor: pointer; color: #108ee9;"> {{ ad.serviceName }}</h2>
+                <h2 style="cursor: pointer; color: #108ee9;">
+                    <a [routerLink]="['/client/ad', ad.id]" style="color: #108ee9; text-decoration: none;">
+                        {{ ad.serviceName }}
+                    </a>
+                </h2>
                 <hr>
                 <h5>
                     Preço: <b>{{ ad.price }}</b> 
