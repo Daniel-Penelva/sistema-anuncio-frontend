@@ -1,1 +1,27 @@
-<p>review works!</p>
+<div class="parent">
+    <div class="child">
+        <div nz-row class="imgDiv">
+            <h2 style="margin-left: 230px;">Avaliar Anúncio</h2>
+        </div>
+        <form nz-form [formGroup]="validateForm" (ngSubmit)="giveReview()">
+            <div nz-col nzSpan="24">
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Campo Obrigatório!">
+                        <textarea rows="5" nz-input placeholder="Deixar Comentário" formControlName="review">
+                        </textarea>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="Campo Obrigatório!">
+                            <nz-rate formControlName="rating"></nz-rate>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+            </div>
+            <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Avaliar</button>
+        </form>
+    </div>
+</div>
