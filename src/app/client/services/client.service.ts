@@ -38,6 +38,11 @@ export class ClientService {
     return this.http.get(BASIC_URL + `api/client/my-bookings/${userId}`, { headers: this.createAuthorizationHeader() });
   }
 
+  // Este método é responsável por enviar uma avaliação (reviewDTO) ao back-end através de uma requisição HTTP POST.
+  giveReview(reviewDTO: any): Observable<any> {
+    return this.http.post(BASIC_URL + `api/client/review`, reviewDTO, { headers: this.createAuthorizationHeader() });
+  }
+
   // Método responsável de criar e retornar os cabeçalhos de autorização que são usados para autenticar a requisição HttpHeaders.
   createAuthorizationHeader(): HttpHeaders {
     let authHeaders: HttpHeaders = new HttpHeaders();
