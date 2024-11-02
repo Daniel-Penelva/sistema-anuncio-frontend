@@ -17,6 +17,7 @@ export class AdDetailComponent {
   ad: any;
   validateForm!: FormGroup;
   loading = false;             // Variável de controle do carregamento
+  reviews: any;
 
   constructor(
     private clientService: ClientService,
@@ -39,6 +40,7 @@ export class AdDetailComponent {
       console.log(res);
       this.avatarUrl = 'data:image/jpeg;base64,' + res.adDTO.returnedImg;
       this.ad = res.adDTO;
+      this.reviews = res.reviewDTOList;
     }, error => {
       console.log('Erro ao buscar os detalhes do anúncio:', error);
     });
