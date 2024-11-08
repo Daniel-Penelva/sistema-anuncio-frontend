@@ -9,11 +9,34 @@
     </div>
 
     <div class="nav-links">
-      <a nz-button nzType="link" routerLink="/home" routerLinkActive="active">Home</a>
+      <a nz-button nzType="link" routerLink="/" routerLinkActive="active">Home</a>
       <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Registrar</a>
       <a nz-button nzType="link" routerLink="/login" routerLinkActive="active">Login</a>
     </div>
   </nz-header>
+
+  <!-- Seção de boas-vindas com imagem, exibida apenas se showWelcomeImage for true -->
+  <div *ngIf="showWelcomeImage">
+    <nz-card nzTitle="Bem-vindo ao Sistema de Anúncio de Reservas de Serviços" style="margin: 20px; border-radius: 10px; overflow: hidden; text-align: center;">
+      <div style="text-align: center;">
+        <img src="../../../assets/img/home.jpg" alt="Imagem de Boas-vindas" style="width: 50%; height: auto; border-radius: 10px;">
+      </div>
+      <div style="margin-top: 15px; text-align: center;">
+        <p style="font-size: 18px; color: #003973;">Descubra e reserve serviços com facilidade.</p>
+      </div>
+      <div style="text-align: center;">
+        <a nz-button nzType="primary" style="background-color: #bb2929; border-color: #bb2929;" routerLink="/login" routerLinkActive="active">
+          Comece Agora
+        </a>
+      </div>
+    </nz-card>
+
+    <nz-footer class="custom-footer">
+      <div class="footer-content">
+        | Sistema de Anúncio de Serviços | - © 2024 Copyright: Daniel Penelva de Andrade
+      </div>
+    </nz-footer>
+  </div>
 </div>
 
 <!-- Este bloco é exibido se o usuário Cliente estiver logado -->

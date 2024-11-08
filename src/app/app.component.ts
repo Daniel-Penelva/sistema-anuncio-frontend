@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserStorageService } from './basic/services/storage/user-storage.service';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +13,8 @@ export class AppComponent {
   isClientLoggedIn: boolean = UserStorageService.isClientLoggedIn();
   isCompanyLoggedIn: boolean = UserStorageService.isCompanyLoggedIn();
 
+  showWelcomeImage: boolean = true;   // Variável para controlar a exibição da imagem
+
   constructor(private router: Router){}
 
   // Método responsável por se inscrever nos eventos de navegação do roteador. Aqui, o estado de login é atualizado automaticamente sempre que ocorre uma navegação, garantindo que a interface sempre reflita o estado de autenticação do usuário.
@@ -20,6 +22,10 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       this.isClientLoggedIn = UserStorageService.isClientLoggedIn();
       this.isCompanyLoggedIn = UserStorageService.isCompanyLoggedIn();
+
+      if(event instanceof NavigationEnd) {
+        this.showWelcomeImage = event.url === '/';
+      }
     });
   }
 

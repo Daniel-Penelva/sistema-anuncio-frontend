@@ -422,4 +422,18 @@ $white-one: #fcfcfc;
   }
 }
 
+.custom-footer {
+  background-color: #bb2929; /* Vermelho */
+  color: white; /* Branco */
+  text-align: center;
+  padding: 15px 0;
+  font-size: 16px;
+  border-top: 2px solid #fff; /* Linha superior em branco para destaque */
+}
+
+.footer-content {
+  margin: 0 auto;
+}
+
+
 
