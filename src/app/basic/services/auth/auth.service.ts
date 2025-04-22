@@ -2,8 +2,10 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { UserStorageService } from '../storage/user-storage.service';
+import { environment } from '../../../../environments/environment';
 
-const BASIC_URL = "http://localhost:8080/";
+//const BASIC_URL = "http://localhost:8080/";
+const BASIC_URL = environment.apiUrl;
 export const AUTH_HEADER = 'authorization';
 
 @Injectable({
